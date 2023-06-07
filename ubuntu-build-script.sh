@@ -155,7 +155,7 @@ fi
 # ---------------------#
 run-cmd "sudo apt-get update" 
 run-cmd "sudo apt-get upgrade -y" 
-run-cmd "sudo apt-get install ubuntu-gnome-desktop -y"
+run-cmd "sudo apt-get install ubuntu-desktop -y"
 run-cmd "sudo apt-get install stacer -y"
 run-cmd "sudo apt-get install mmv -y"
 
