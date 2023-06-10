@@ -153,22 +153,8 @@ fi
 #----------------------#
 # MAIN ROUTINE FOLLOWS #
 # ---------------------#
-run-cmd "sudo apt-get update" 
-run-cmd "sudo apt-get upgrade -y" 
-run-cmd "sudo apt-get install ubuntu-desktop -y"
-run-cmd "sudo apt-get install stacer -y"
-run-cmd "sudo apt-get install mmv -y"
-
-run-cmd "sudo apt-get install firefox -y"
-run-cmd "sudo apt-get install qdirstat -y"
 
 sub-build-swapfile
-
-sub-enable-os-controlled-networking 
-
-sub-install-nomachine
-
-sub-install-and-configue-ufw
 
 sub-configue-nomachine-user
 
