@@ -27,7 +27,7 @@ function sub-build-swapfile ()
  echo ""
  echo ""
  echo "================================================================="
- echo " About to build 4GB swapfile called /swapfile"
+ echo " About to build 8GB swapfile called /swapfile"
  echo "-----------------------------------------------------------------"
  read -p "Proceed ? (Y/n)" choice
  if [ "$choice" = "n" ]
@@ -43,7 +43,7 @@ function sub-build-swapfile ()
     else 
         echo "/swapfile does not exist. Bulding /swapfile.."
         cd /
-	    sudo dd if=/dev/zero of=/swapfile bs=1M count=4096 status=progress
+	    sudo dd if=/dev/zero of=/swapfile bs=1M count=8192 status=progress
 	    sudo chmod 600 /swapfile
 	    sudo mkswap /swapfile
 	    sudo swapon /swapfile
@@ -141,6 +141,7 @@ sub-configue-nomachine-user ()
        echo "Bypassing...." 
     else 
     echo "Running..."
+    sudo adduser shine
          #(example password : paste  se7ye8pc5hs0  )
     sudo usermod -aG sudo,adm,lp,sys,lpadmin shine
     sudo passwd --delete --lock rootuser
