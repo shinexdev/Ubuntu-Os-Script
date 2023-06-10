@@ -27,7 +27,7 @@ function sub-build-swapfile ()
  echo ""
  echo ""
  echo "================================================================="
- echo " About to build 8GB swapfile called /swapfile"
+ echo " About to build 2GB swapfile called /swapfile"
  echo "-----------------------------------------------------------------"
  read -p "Proceed ? (Y/n)" choice
  if [ "$choice" = "n" ]
@@ -43,7 +43,7 @@ function sub-build-swapfile ()
     else 
         echo "/swapfile does not exist. Bulding /swapfile.."
         cd /
-	    sudo dd if=/dev/zero of=/swapfile bs=1M count=8192 status=progress
+	    sudo dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress
 	    sudo chmod 600 /swapfile
 	    sudo mkswap /swapfile
 	    sudo swapon /swapfile
@@ -153,8 +153,22 @@ fi
 #----------------------#
 # MAIN ROUTINE FOLLOWS #
 # ---------------------#
+run-cmd "sudo apt-get update" 
+run-cmd "sudo apt-get upgrade -y" 
+run-cmd "sudo apt-get install ubuntu-desktop -y"
+run-cmd "sudo apt-get install stacer -y"
+run-cmd "sudo apt-get install mmv -y"
+
+run-cmd "sudo apt-get install firefox -y"
+run-cmd "sudo apt-get install qdirstat -y"
 
 sub-build-swapfile
+
+sub-enable-os-controlled-networking 
+
+sub-install-nomachine
+
+sub-install-and-configue-ufw
 
 sub-configue-nomachine-user
 
