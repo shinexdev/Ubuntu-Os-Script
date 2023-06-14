@@ -27,7 +27,7 @@ function sub-build-swapfile ()
  echo ""
  echo ""
  echo "================================================================="
- echo " About to build 1GB swapfile called /swapfile"
+ echo " About to build 2GB swapfile called /swapfile"
  echo "-----------------------------------------------------------------"
  read -p "Proceed ? (Y/n)" choice
  if [ "$choice" = "n" ]
@@ -43,7 +43,7 @@ function sub-build-swapfile ()
     else 
         echo "/swapfile does not exist. Bulding /swapfile.."
         cd /
-	    sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 status=progress
+	    sudo dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress
 	    sudo chmod 600 /swapfile
 	    sudo mkswap /swapfile
 	    sudo swapon /swapfile
@@ -155,7 +155,7 @@ fi
 # ---------------------#
 run-cmd "sudo apt-get update" 
 run-cmd "sudo apt-get upgrade -y" 
-run-cmd "sudo apt-get install ubuntu-desktop-minimal -y"
+run-cmd "sudo apt-get install ubuntu-desktop -y"
 run-cmd "sudo apt-get install stacer -y"
 run-cmd "sudo apt-get install mmv -y"
 
