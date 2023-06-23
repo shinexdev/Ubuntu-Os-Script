@@ -130,7 +130,7 @@ sub-configue-nomachine-user ()
  echo ""
  echo ""
  echo "================================================================="
- echo " Set up nomachine user & lock root user"
+ echo " Set up shine user & lock root user"
  echo "-----------------------------------------------------------------"
  read -p "Proceed ? (Y/n)" choice
  if [ "$choice" = "n" ]
@@ -141,9 +141,9 @@ sub-configue-nomachine-user ()
        echo "Bypassing...." 
     else 
     echo "Running..."
-    sudo adduser nomachine
+    sudo adduser shine
          #(example password : paste  se7ye8pc5hs0  )
-    sudo usermod -aG sudo,adm,lp,sys,lpadmin nomachine
+    sudo usermod -aG sudo,adm,lp,sys,lpadmin shine
     sudo passwd --delete --lock rootuser
 fi
 }
