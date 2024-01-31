@@ -43,7 +43,7 @@ function sub-build-swapfile ()
     else 
         echo "/swapfile does not exist. Bulding /swapfile.."
         cd /
-	    sudo dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress
+	    sudo dd if=/dev/zero of=/swapfile bs=1M count=512 status=progress
 	    sudo chmod 600 /swapfile
 	    sudo mkswap /swapfile
 	    sudo swapon /swapfile
@@ -130,7 +130,7 @@ sub-configue-nomachine-user ()
  echo ""
  echo ""
  echo "================================================================="
- echo " Set up admin user & lock root user"
+ echo " Set up shinexdev user & lock root user"
  echo "-----------------------------------------------------------------"
  read -p "Proceed ? (Y/n)" choice
  if [ "$choice" = "n" ]
@@ -141,9 +141,9 @@ sub-configue-nomachine-user ()
        echo "Bypassing...." 
     else 
     echo "Running..."
-    sudo adduser admin
+    sudo adduser shinexdev
          #(example password : paste  se7ye8pc5hs0  )
-    sudo usermod -aG sudo,adm,lp,sys,lpadmin admin
+    sudo usermod -aG sudo,adm,lp,sys,lpadmin shinexdev
     sudo passwd --delete --lock rootuser
 fi
 }
